@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -73,16 +73,21 @@ void ui_animation(void * var, int32_t duration, int32_t delay, int32_t start_val
 void init_scr_del_flag(lv_ui *ui)
 {
 
-    ui->screen_del = true;
-    ui->screen_set_del = true;
+    ui->screen_home_del = true;
     ui->screen_tom_del = true;
-    ui->screen_time_del = true;
-    ui->screen_clock_del = true;
+    ui->screen_set_del = true;
+    ui->screen_ser_time_del = true;
+    ui->screen_set_clock_del = true;
+    ui->screen_set_clock_alarm_del = true;
+    ui->screen_set_aural_del = true;
+    ui->screen_set2_del = true;
+    ui->screen_zhexian_del = true;
+    ui->screen_zhuzhuang_del = true;
 }
 
 void setup_ui(lv_ui *ui)
 {
     init_scr_del_flag(ui);
-    setup_scr_screen_tom(ui);
-    lv_scr_load(ui->screen_tom);
+    setup_scr_screen_home(ui);
+    lv_scr_load(ui->screen_home);
 }

@@ -251,6 +251,7 @@
                 "W:/Project_tomato_clock/ESP32S3/.pio/libdeps/esp32-s3-devkitc-1/NTPClient/",
                 "W:/Project_tomato_clock/ESP32S3/.pio/libdeps/esp32-s3-devkitc-1/lvgl/examples/porting",
                 "W:/Project_tomato_clock/ESP32S3/lib/Time",
+                "W:/Project_tomato_clock/ESP32S3/.pio/libdeps/esp32-s3-devkitc-1/ESP32httpUpdate/src",
                 ""
             ],
             "browse": {

@@ -1,5 +1,5 @@
-.pio/build/esp32-s3-devkitc-1/src/m_lvgl/generated/setup_scr_screen_clock.c.o: \
- src/m_lvgl/generated/setup_scr_screen_clock.c \
+.pio/build/esp32-s3-devkitc-1/src/m_lvgl/generated/images/_zhexian_alpha_40x40.c.o: \
+ src/m_lvgl/generated/images/_zhexian_alpha_40x40.c \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/lvgl.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/lv_log.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/../lv_conf_internal.h \
@@ -235,7 +235,4 @@
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/extra/widgets/imgbtn/../../../lvgl.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/extra/widgets/span/lv_span.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/extra/widgets/span/../../../lvgl.h \
- .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/extra/libs/lv_libs.h \
- src/m_lvgl/generated/gui_guider.h src/m_lvgl/generated/events_init.h \
- src/m_lvgl/generated/widgets_init.h src/m_lvgl\custom\custom.h \
- src/m_lvgl\generated\gui_guider.h
+ .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/extra/libs/lv_libs.h

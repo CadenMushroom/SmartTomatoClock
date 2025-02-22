@@ -1,5 +1,5 @@
-.pio/build/esp32-s3-devkitc-1/src/m_lvgl/generated/setup_scr_screen.c.o: \
- src/m_lvgl/generated/setup_scr_screen.c \
+.pio/build/esp32-s3-devkitc-1/src/m_lvgl/generated/setup_scr_screen_zhuzhuang.c.o: \
+ src/m_lvgl/generated/setup_scr_screen_zhuzhuang.c \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/lvgl.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/lv_log.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/../lv_conf_internal.h \

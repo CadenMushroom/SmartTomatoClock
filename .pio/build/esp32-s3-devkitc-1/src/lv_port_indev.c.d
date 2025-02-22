@@ -1,5 +1,5 @@
 .pio/build/esp32-s3-devkitc-1/src/lv_port_indev.c.o: src/lv_port_indev.c \
- src/lv_port_indev.h .pio/libdeps/esp32-s3-devkitc-1/lvgl/lvgl.h \
+ include/lv_port_indev.h .pio/libdeps/esp32-s3-devkitc-1/lvgl/lvgl.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/lv_log.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/../lv_conf_internal.h \
  .pio/libdeps/esp32-s3-devkitc-1/lvgl/src/misc/../lv_conf_kconfig.h \

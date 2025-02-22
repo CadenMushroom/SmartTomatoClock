@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -23,10 +23,10 @@ void clock_count(int *hour, int *min, int *sec);
 #endif
 
 
-void screen_digitalClock_timer(lv_timer_t *timer);
-void screen_calender_event_handler(lv_event_t *e);
-void screen_calender_calendar_event_handler(lv_event_t *e);
-void screen_calender_init_calendar(lv_obj_t *obj, char * s);
+void screen_home_digitalClock_timer(lv_timer_t *timer);
+void screen_home_calender_event_handler(lv_event_t *e);
+void screen_home_calender_calendar_event_handler(lv_event_t *e);
+void screen_home_calender_init_calendar(lv_obj_t *obj, char * s);
 
 #ifdef __cplusplus
 }

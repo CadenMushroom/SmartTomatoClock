@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -76,60 +76,60 @@ void clock_count(int *hour, int *min, int *sec)
 #endif
 
 
-extern int screen_digitalClock_hour_value;
-extern int screen_digitalClock_min_value;
-extern int screen_digitalClock_sec_value;
-extern char screen_digitalClock_meridiem[];
+extern int screen_home_digitalClock_hour_value;
+extern int screen_home_digitalClock_min_value;
+extern int screen_home_digitalClock_sec_value;
+extern char screen_home_digitalClock_meridiem[];
 
-void screen_digitalClock_timer(lv_timer_t *timer)
+void screen_home_digitalClock_timer(lv_timer_t *timer)
 {
-    clock_count_12(&screen_digitalClock_hour_value, &screen_digitalClock_min_value, &screen_digitalClock_sec_value, screen_digitalClock_meridiem);
-    if (lv_obj_is_valid(guider_ui.screen_digitalClock))
+    clock_count_12(&screen_home_digitalClock_hour_value, &screen_home_digitalClock_min_value, &screen_home_digitalClock_sec_value, screen_home_digitalClock_meridiem);
+    if (lv_obj_is_valid(guider_ui.screen_home_digitalClock))
     {
-        lv_dclock_set_text_fmt(guider_ui.screen_digitalClock, "%d:%02d:%02d %s", screen_digitalClock_hour_value, screen_digitalClock_min_value, screen_digitalClock_sec_value, screen_digitalClock_meridiem);
+        lv_dclock_set_text_fmt(guider_ui.screen_home_digitalClock, "%d:%02d:%02d %s", screen_home_digitalClock_hour_value, screen_home_digitalClock_min_value, screen_home_digitalClock_sec_value, screen_home_digitalClock_meridiem);
     }
 }
-static lv_obj_t * screen_calender_calendar;
+static lv_obj_t * screen_home_calender_calendar;
 
-void screen_calender_event_handler(lv_event_t *e)
+void screen_home_calender_event_handler(lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t * btn = lv_event_get_target(e);
     if(code == LV_EVENT_FOCUSED) {
         char * s = lv_label_get_text(btn);
-        if(screen_calender_calendar == NULL) {
-            screen_calender_init_calendar(btn, s);
+        if(screen_home_calender_calendar == NULL) {
+            screen_home_calender_init_calendar(btn, s);
         }
     }
 }
 
-void screen_calender_init_calendar(lv_obj_t *obj, char * s)
+void screen_home_calender_init_calendar(lv_obj_t *obj, char * s)
 {
-    if (screen_calender_calendar == NULL) {
+    if (screen_home_calender_calendar == NULL) {
         lv_obj_add_flag(lv_layer_top(), LV_OBJ_FLAG_CLICKABLE);
-        screen_calender_calendar = lv_calendar_create(lv_layer_top());
+        screen_home_calender_calendar = lv_calendar_create(lv_layer_top());
         lv_obj_t * scr = lv_obj_get_screen(obj);
         lv_coord_t scr_height = lv_obj_get_height(scr);
         lv_coord_t scr_width = lv_obj_get_width(scr);
-        lv_obj_set_size(screen_calender_calendar, scr_width * 0.8, scr_height * 0.8);
+        lv_obj_set_size(screen_home_calender_calendar, scr_width * 0.8, scr_height * 0.8);
         char * year = strtok(s, "/");
         char * month = strtok(NULL, "/");
         char * day = strtok(NULL, "/");
-        lv_calendar_set_showed_date(screen_calender_calendar, atoi(year), atoi(month));
+        lv_calendar_set_showed_date(screen_home_calender_calendar, atoi(year), atoi(month));
         lv_calendar_date_t highlighted_days[1];       /*Only its pointer will be saved so should be static*/
         highlighted_days[0].year = atoi(year);
         highlighted_days[0].month = atoi(month);
         highlighted_days[0].day = atoi(day);
-        lv_calendar_set_highlighted_dates(screen_calender_calendar, highlighted_days, 1);
-        lv_obj_align(screen_calender_calendar,LV_ALIGN_CENTER, 0, 0);
+        lv_calendar_set_highlighted_dates(screen_home_calender_calendar, highlighted_days, 1);
+        lv_obj_align(screen_home_calender_calendar,LV_ALIGN_CENTER, 0, 0);
 
-        lv_obj_add_event_cb(screen_calender_calendar, screen_calender_calendar_event_handler, LV_EVENT_ALL,NULL);
-        lv_calendar_header_arrow_create(screen_calender_calendar);
+        lv_obj_add_event_cb(screen_home_calender_calendar, screen_home_calender_calendar_event_handler, LV_EVENT_ALL,NULL);
+        lv_calendar_header_arrow_create(screen_home_calender_calendar);
         lv_obj_update_layout(scr);
     }
 }
 
-void screen_calender_calendar_event_handler(lv_event_t *e)
+void screen_home_calender_calendar_event_handler(lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     lv_obj_t * obj = lv_event_get_current_target(e);
@@ -139,11 +139,11 @@ void screen_calender_calendar_event_handler(lv_event_t *e)
         lv_calendar_get_pressed_date(obj,&date);
         char buf[16];
         lv_snprintf(buf,sizeof(buf),"%d/%02d/%02d", date.year, date.month,date.day);
-        lv_label_set_text(guider_ui.screen_calender, buf);
+        lv_label_set_text(guider_ui.screen_home_calender, buf);
         lv_obj_clear_flag(lv_layer_top(), LV_OBJ_FLAG_CLICKABLE);
         lv_obj_set_style_bg_opa(lv_layer_top(), LV_OPA_TRANSP, 0);
-        lv_obj_del(screen_calender_calendar);
-        screen_calender_calendar = NULL;
+        lv_obj_del(screen_home_calender_calendar);
+        screen_home_calender_calendar = NULL;
     }
 }
 

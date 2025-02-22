@@ -103,7 +103,7 @@ void lv_port_indev_init(void)
     group_home = lv_group_create();
     group_set = lv_group_create();
     
-    lv_indev_set_group(indev_keypad, group_tom);
+    lv_indev_set_group(indev_keypad, group_home);
     
     /*------------------
      * Button

@@ -1,1 +1,1 @@
-GEN_CSRCS += _fanqiegongjv_alpha_40x40.c _fanqiegongjv_xuanzhong_alpha_40x40.c _shezhi_alpha_40x40.c _verifyTime_alpha_150x150.c
+GEN_CSRCS += _fanqiegongjv_alpha_40x40.c _fanqiegongjv_xuanzhong_alpha_40x40.c _shezhi_alpha_40x40.c _zhexian_alpha_40x40.c _zhexian_xuanzhonhg_alpha_40x40.c _zhuzhuang_alpha_40x40.c _zhuzhuang_xuanzhong_alpha_40x40.c _verifyTime_alpha_150x150.c

@@ -1,5 +1,5 @@
 /*
-* Copyright 2024 NXP
+* Copyright 2025 NXP
 * NXP Proprietary. This software is owned or controlled by NXP and may only be used strictly in
 * accordance with the applicable license terms. By expressly accepting such terms or by downloading, installing,
 * activating and/or otherwise using the software, you are agreeing that you have read, and that you agree to
@@ -18,11 +18,14 @@ extern "C" {
 
 void events_init(lv_ui *ui);
 
-void events_init_screen(lv_ui *ui);
-void events_init_screen_set(lv_ui *ui);
+void events_init_screen_home(lv_ui *ui);
 void events_init_screen_tom(lv_ui *ui);
-void events_init_screen_time(lv_ui *ui);
-void events_init_screen_clock(lv_ui *ui);
+void events_init_screen_set(lv_ui *ui);
+void events_init_screen_ser_time(lv_ui *ui);
+void events_init_screen_set_clock(lv_ui *ui);
+void events_init_screen_set_aural(lv_ui *ui);
+void events_init_screen_zhexian(lv_ui *ui);
+void events_init_screen_zhuzhuang(lv_ui *ui);
 
 #ifdef __cplusplus
 }

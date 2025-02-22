@@ -1,4 +1,61 @@
-#include "main.h"
+#include<Arduino.h>
+//显示库
+#include "lv_port_indev.h"
+#include <lvgl.h>
+#include <TFT_eSPI.h>
+//自定义LVGL库
+#include "m_lvgl\generated\events_init.h"
+#include "m_lvgl\generated\gui_guider.h"
+#include "m_lvgl\custom\custom.h"
+//WiFi和获取NTP时间库
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+#include <WiFi.h>
+//时间解析库
+#include <TimeLib.h>
+//OTA库
+#include<m_OTA.h>
+
+/*
+    WiFi和NTP服务器配置
+*/
+const char *ssid     = "荣耀Magic7";
+const char *password = "12345678";
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP);
+volatile unsigned int tim1_IRQ_count = 0;
+
+extern int screen_home_digitalClock_min_value;
+extern int screen_home_digitalClock_hour_value;
+extern int screen_home_digitalClock_sec_value;
+extern char screen_digitalClock_meridiem;
+
+/*
+    LVGL和TFT屏幕配置
+*/
+
+
+#define TFT_HOR_RES 170
+#define TFT_VER_RES 320
+
+lv_ui guider_ui;
+
+static const uint16_t screenWidth  = 170;
+static const uint16_t screenHeight = 320;
+
+static lv_disp_draw_buf_t draw_buf;
+static lv_color_t buf[ screenWidth * screenHeight / 10 ];
+
+TFT_eSPI tft = TFT_eSPI(screenWidth, screenHeight); /* TFT instance */
+
+/*
+    番茄钟模块配置
+*/
+time_t dsec;
+time_t dsec0;
+hw_timer_t *tim1 = NULL;
+int flag;
 
 
 char str[10];  // 足够容纳数字字符和字符串结束符
@@ -28,10 +85,10 @@ void WiFiEvent(WiFiEvent_t event) {
 
       timeClient.begin();
       timeClient.update();
-
-      screen_digitalClock_min_value = timeClient.getMinutes();
-      screen_digitalClock_hour_value= timeClient.getHours();
-      screen_digitalClock_sec_value = timeClient.getSeconds();
+      
+      screen_home_digitalClock_min_value = timeClient.getMinutes();
+      screen_home_digitalClock_hour_value= timeClient.getHours();
+      screen_home_digitalClock_sec_value = timeClient.getSeconds();
       // 这里可以添加更多连接成功后的操作，这就是回调函数的执行部分
       break;
     case SYSTEM_EVENT_STA_DISCONNECTED:
@@ -64,6 +121,7 @@ void Tim1Interrupt()
   }
   flag = 1;
 }
+
 void setup()
 {
     tim1 = timerBegin(1, 80, true);
